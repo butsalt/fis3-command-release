@@ -46,6 +46,13 @@ exports.run = function(argv, cli, env) {
 
   var app = require('./lib/chains.js')();
 
+  // 执行顺序：
+  // clean（可选）
+  // watch（可选）
+  // release
+  // 在每个html文件额外加载liveload.js（如果是liveReload的）
+  // deliver
+  // liveReload (可选)
   app.use(function(options, next) {
 
     // clear cache?
