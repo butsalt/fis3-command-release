@@ -82,6 +82,7 @@ exports.run = function(argv, cli, env) {
   app.use(livereload.handleReloadComment);
 
   // deliver
+  // 编译完成，产出文件
   app.use(function(info, next) {
     fis.log.debug('deploy start');
     deploy(info, function(error) {
